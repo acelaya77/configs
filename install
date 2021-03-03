@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+mkdir -p ~/.config/nvim/plugin
+mkdir -p ~/.config/nvim/after/plugin
+mkdir -p ~/.config/nvim/lua
+
+#link all
+pushd ~/acelaya77/configs/
+
+for f in `find * -regex ".*\.vim$\|.*\.lua$"`; do
+    rm -rf ~/.config/nvim/$f
+    ln -vs ~/acelaya77/configs/$f ~/.config/nvim/$f
+    echo "$f"
+done
+
+popd 
+
+

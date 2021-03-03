@@ -1,25 +1,25 @@
 
-syntax on
 
-set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-set number
-set relativenumber
-set scrolloff=8
-set nowrap
-set smartcase
-set noswapfile
-set nobackup
-set undodir=~/.vim/undodir
-set undofile
-set incsearch
+"if empty(glob('~/.vim/autoload/plug.vim'))
+"  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+"endif
 
-set colorcolumn=80
+call plug#begin('~/.vim/plugged')
+
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'gruvbox-community/gruvbox'
+
+call plug#end()
+
+colorscheme gruvbox
+highlight normal guibg=none
+
+
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
-
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
