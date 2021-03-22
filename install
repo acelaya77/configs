@@ -3,6 +3,11 @@
 mkdir -p ~/.config/nvim/{plugin,after,lua}
 mkdir -p ~/.config/nvim/after/plugin
 
+if [[ ! -e ~/.vimrc ]]; then
+    touch ~/.vimrc
+    printf "\"\"Auto-generated file, $(date +%F\ %H:%M:%S)\n\n" > ~/.vimrc
+fi
+
 #mkdir -p ~/.config/nvim/plugin
 #mkdir -p ~/.config/nvim/after/plugin
 #mkdir -p ~/.config/nvim/lua
@@ -20,4 +25,8 @@ done
 
 popd 
 
+
+echo "You will need to run the following:"
+echo 'sudo apt-get install python3-dev cmake'
+echo "\n"
 
