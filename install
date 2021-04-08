@@ -3,9 +3,19 @@
 mkdir -p ~/.config/nvim/{plugin,after,lua}
 mkdir -p ~/.config/nvim/after/plugin
 
+if [[ -e ~/.config/nvim/init.vim ]]; then
+    mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.bak
+    echo "backup created, ~/.config/nvim/init.vim -> ./init.vim.bak"
+fi
+
 if [[ ! -e ~/.vimrc ]]; then
     touch ~/.vimrc
-    printf "\"\"Auto-generated file, $(date +%F\ %H:%M:%S)\n\n" > ~/.vimrc
+    GENERATED=true
+fi
+
+if [[ -z ${GENERATED+x} ]]; then
+    printf "\"\"Auto-generated file, $(date +%F\ %H:%M:%S)\n\n" >> ~/.vimrc
+    echo "generated '~/.vimrc'"
 fi
 
 #mkdir -p ~/.config/nvim/plugin
